@@ -10,3 +10,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   synchronize: true,
   logging: true,
 };
+
+//NOTE:
+//Belajar_nest_js = project
+// miko_js = umum....
