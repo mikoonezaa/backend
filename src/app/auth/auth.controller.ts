@@ -32,4 +32,10 @@ export class AuthController {
     const id = req.headers.id;
     return this.authService.refreshToken(+id, token);
   }
+
+  @Post('lupa-password')
+  async forgotPassword(@Body('email') email: string) {
+    console.log('email', email);
+    return this.authService.forgotPassword(email);
+  }
 }
