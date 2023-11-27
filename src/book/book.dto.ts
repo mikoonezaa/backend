@@ -45,7 +45,7 @@ export class createBookArrayDto {
 
 export class deleteBookArrayDto {
   @IsArray()
-  delete: CreateBookDto[];
+  data: number[];
 }
 export class findBookDto extends PageRequestDto {
   @IsOptional()

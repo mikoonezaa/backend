@@ -115,14 +115,10 @@ export class BookService extends BaseResponse {
     console.log('book', book);
 
     if (book === null) {
-      throw new NotFoundException('Buku dengan id $(id) tidak ditemukan');
+      throw new NotFoundException(`Buku dengan id ${id} tidak ditemukan`);
     }
 
-    return {
-      status: 'ok',
-      message: 'berhasil',
-      data: book,
-    };
+    return this._success('yeayy', book);
   }
 
   async updateBook(
@@ -155,10 +151,7 @@ export class BookService extends BaseResponse {
     if (!check)
       throw new NotFoundException('Buku dengan id ${id} tidak ditemukan');
     await this.bookRepository.delete(id);
-    return {
-      status: 'ok',
-      message: 'Berhasil Mengahapus Buku',
-    };
+    return this._success('yeayyy');
   }
   findBookByid(id: number) {
     const bookIndex = this.books.findIndex((books) => books.id === id);
@@ -200,7 +193,7 @@ export class BookService extends BaseResponse {
       let berhasil = 0;
       let gagal = 0;
       await Promise.all(
-        payload.delete.map(async (data) => {
+        payload.data.map(async (data) => {
           try {
             const result = await this.bookRepository.delete(data);
             if (result.affected === 1) {
