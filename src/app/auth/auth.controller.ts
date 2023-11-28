@@ -1,6 +1,15 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Controller, Post, Body, Req, Get, UseGuards } from '@nestjs/common';
-import { LoginDto, RegisterDto } from './auth.dto';
+import {
+  Controller,
+  Post,
+  Body,
+  Req,
+  Get,
+  UseGuards,
+  Param,
+} from '@nestjs/common';
+import { LoginDto, RegisterDto, ResetPasswordDto } from './auth.dto';
 import { AuthService } from './auth.service';
 import { JwtAccessTokenStrategy } from './jwtAccessToken.strategy';
 import { JwtGuard, JwtGuardRefreshToken } from './auth.guard';
@@ -37,5 +46,14 @@ export class AuthController {
   async forgotPassword(@Body('email') email: string) {
     console.log('email', email);
     return this.authService.forgotPassword(email);
+  }
+
+  @Post('reset-password/:user_id/:token')
+  async resetPassword(
+    @Param('user_id') user_id: string,
+    @Param('token') token: string,
+    @Body() payload: ResetPasswordDto,
+  ) {
+    return this.authService.resetPassword(+user_id, token, payload);
   }
 }

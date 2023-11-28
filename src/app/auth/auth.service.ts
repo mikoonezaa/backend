@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   HttpException,
@@ -243,5 +244,5 @@ export class AuthService extends BaseResponse {
     });
 
     return this._success('Reset Passwod Berhasil, Silahkan login ulang');
-  }
+  } 
 }

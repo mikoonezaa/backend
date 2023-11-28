@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { OmitType, PickType } from '@nestjs/mapped-types';
 import { Type } from 'class-transformer';
 import {
