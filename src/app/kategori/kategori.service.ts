@@ -35,7 +35,7 @@ export class KategoriService extends BaseResponse {
   async getAllCategory(query: findAllKategori): Promise<ResponsePagination> {
     const { page, pageSize, limit, nama_kategori } = query;
 
-    const filterQuery = {};
+    const filterQuery: any = {};
     if (nama_kategori) {
       filterQuery.nama_kategori = Like(`%${nama_kategori}%`);
     }
