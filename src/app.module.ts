@@ -9,6 +9,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './config/typeorm.config';
 import { UtsModule } from './uts/uts.module';
 import { AuthModule } from './app/auth/auth.module';
+import { PasModule } from './pas/pas.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { AuthModule } from './app/auth/auth.module';
     BookModule,
     UtsModule,
     AuthModule,
+    PasModule,
   ],
   controllers: [AppController, UserController],
   providers: [AppService, UserService],
